@@ -1,0 +1,20 @@
+<resources>
+
+    <!--             Main Activity           -->
+    <string name="app_name">Poketest</string>
+    <string name="check_box_hp_text">Health</string>
+    <string name="check_box_att_text">Attack</string>
+    <string name="check_box_def_text">Defence</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="loading">Loading</string>
+
+    <!--             Poke Stat Activity           -->
+    <string name="addName">Name: </string>
+    <string name="addType">Type: </string>
+    <string name="addAttack">Attack: </string>
+    <string name="addDeffence">Deffence: </string>
+    <string name="addHP">Health: </string>
+    <string name="addWeight">Weight: </string>
+    <string name="addHeight">Height: </string>
+
+</resources>
