@@ -18,6 +18,10 @@ public class PokePresenter {
         this.view = null;
     }
 
+    public void refresh(){
+
+    }
+
     public void viewIsReady(){
         loadPokes();
     }
