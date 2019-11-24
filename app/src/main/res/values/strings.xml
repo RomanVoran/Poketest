@@ -1,6 +1,6 @@
 <resources>
 
-    <!--             Main Activity           -->
+    <!--             Main Activity     (View)    -->
     <string name="app_name">Poketest</string>
     <string name="check_box_hp_text">Health</string>
     <string name="check_box_att_text">Attack</string>
@@ -16,5 +16,8 @@
     <string name="addHP">Health: </string>
     <string name="addWeight">Weight: </string>
     <string name="addHeight">Height: </string>
+
+
+    <!--             Poke Model      (Model)     -->
 
 </resources>
