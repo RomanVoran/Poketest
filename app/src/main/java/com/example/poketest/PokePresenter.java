@@ -1,6 +1,5 @@
 package com.example.poketest;
 
-import android.view.View;
 
 public class PokePresenter {
 
