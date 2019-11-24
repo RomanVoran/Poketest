@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,8 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
     private List<Pokemon> pokeList = new ArrayList<>();
 
     // добавление в список новых элементов и его обновление
-    public void setItems(Collection<Pokemon> pokes){
+    public void setItems(List<Pokemon> pokes,boolean clear){
+        if (clear) pokeList.clear();
         pokeList.addAll(pokes);
         notifyDataSetChanged();
     }
@@ -28,6 +28,7 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
         pokeList.clear();
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override

@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private PokeAdapter pokeAdapter;
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         pokePresenter.attachView(this);
     }
 
+    public void addUsers(List<Pokemon> pokes,boolean clear){
+        pokeAdapter.setItems(pokes,clear);
+    }
 
     public void onClickCheckBox(View view){
         // слушатель нажатия на один из ЧекБоксов
