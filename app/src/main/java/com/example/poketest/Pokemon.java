@@ -11,8 +11,16 @@ class Pokemon{
     private String  type;
     private String  sprite;
 
-    public Pokemon(String name, int id,int attack, int defence,
-                   int hp, int height, int weight, String type, String sprite){
+    public Pokemon(String name,
+                   int id,
+                   int attack,
+                   int defence,
+                   int hp,
+                   int height,
+                   int weight,
+                   String type,
+                   String sprite){
+
         this.name    = name;
         this.id      = id;
         this.attack  = attack;

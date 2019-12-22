@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,6 +68,18 @@ public class MainActivity extends AppCompatActivity {
         PokeModel model = new PokeModel();
         pokePresenter = new PokePresenter(model);
         pokePresenter.attachView(this);
+
+
+        ArrayList<String> TEST_LIST = new ArrayList<>();
+        TEST_LIST.add("MOJO");
+        TEST_LIST.add("goga");
+        TEST_LIST.add("loppidop");
+        TEST_LIST.add("HowerBall");
+        TEST_LIST.add("Notify Connection");
+        TEST_LIST.add("Baar");
+        TEST_LIST.add("Vockabulary");
+        TEST_LIST.add("vokabular");
+        pokeAdapter.showTest(TEST_LIST);
     }
 
     public void addUsers(List<Pokemon> pokes,boolean clear){

@@ -3,21 +3,21 @@ package com.example.poketest;
 import retrofit2.Call;
 import retrofit2.Callback;
 
-public class PokeConnection extends Thread {
-    private int ind;
-    private Callback<PokemonJson> callback;
-    private PokeApi pokeApi;
+public class PokeConnection extends Thread{
+    int index;
+    Callback<PokemonJson> jsonCallback;
+    PokeApi pokeApi;
 
-    public PokeConnection(int ind,Callback<PokemonJson> callback,PokeApi pokeApi){
-        this.callback = callback;
-        this.ind = ind;
+    public PokeConnection(int index, Callback<PokemonJson> jsonCallback,PokeApi pokeApi){
         this.pokeApi = pokeApi;
+        this.index = index;
+        this.jsonCallback = jsonCallback;
     }
 
-
     @Override
-    public void run(){
-        Call<PokemonJson> pokemon = pokeApi.getPokemon(ind);
-        pokemon.enqueue(callback);
+    public void run() {
+        super.run();
+        Call<PokemonJson> pokemonJson = pokeApi.getPokemon(index);
+        pokemonJson.enqueue(jsonCallback);
     }
 }
