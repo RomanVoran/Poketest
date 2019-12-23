@@ -38,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHP = findViewById(R.id.checkBox_healt);
         checkBoxAtt = findViewById(R.id.checkBox_attack);
 
-        findViewById(R.id.button_refresh).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pokePresenter.refresh();
-            }
-        });
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -53,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycleView_poke);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(pokeAdapter);
+
+        findViewById(R.id.button_refresh).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pokePresenter.loadPokes(1,10);
+            }
+        });
+
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -67,23 +69,23 @@ public class MainActivity extends AppCompatActivity {
 
         PokeModel model = new PokeModel();
         pokePresenter = new PokePresenter(model);
-        pokePresenter.attachView(this);
+        pokePresenter.attachView(this);;
 
 
-        ArrayList<String> TEST_LIST = new ArrayList<>();
-        TEST_LIST.add("MOJO");
-        TEST_LIST.add("goga");
-        TEST_LIST.add("loppidop");
-        TEST_LIST.add("HowerBall");
-        TEST_LIST.add("Notify Connection");
-        TEST_LIST.add("Baar");
-        TEST_LIST.add("Vockabulary");
-        TEST_LIST.add("vokabular");
-        pokeAdapter.showTest(TEST_LIST);
+//        ArrayList<String> TEST_LIST = new ArrayList<>();
+//        TEST_LIST.add("MOJO");
+//        TEST_LIST.add("goga");
+//        TEST_LIST.add("loppidop");
+//        TEST_LIST.add("HowerBall");
+//        TEST_LIST.add("Notify Connection");
+//        TEST_LIST.add("Baar");
+//        TEST_LIST.add("Vockabulary");
+//        TEST_LIST.add("vokabular");
+//        pokeAdapter.showTest(TEST_LIST);
     }
 
-    public void addUsers(List<Pokemon> pokes,boolean clear){
-        pokeAdapter.setItems(pokes,clear);
+    public void addPokes(){
+        pokeAdapter.refreshRecyclerView();
     }
 
     public void onClickCheckBox(View view){

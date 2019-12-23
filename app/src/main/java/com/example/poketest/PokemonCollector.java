@@ -13,9 +13,11 @@ public class PokemonCollector extends Thread {
     private static volatile boolean mReadyToLoad;
     private static volatile boolean mIsLastPokemon;
     private final String BASE_URL = "https://pokeapi.co/api/v2/";
+    private PokeModel.LoadCompleteCallback completeCallback;
 
-    PokemonCollector(int indFrom, int pokePackSize){
+    PokemonCollector(int indFrom, int pokePackSize, PokeModel.LoadCompleteCallback completeCallback){
         this.indFrom = indFrom;
+        this.completeCallback = completeCallback;
         this.pokePackSize = pokePackSize;
     }
 
@@ -37,6 +39,7 @@ public class PokemonCollector extends Thread {
                         response.body().getSprites().getFront_default()));
                 if (mIsLastPokemon){
                     mIsLastPokemon = false;
+                    completeCallback.LoadComplete();
                     // загружен и добавлен последний покемон (далее отрисовка recycler view)
                 }
 

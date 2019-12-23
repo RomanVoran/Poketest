@@ -15,19 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder> {
 
-    private List<Pokemon> pokeList = new ArrayList<>();
+    private List<Pokemon> adapterPokeList = new ArrayList<>();
     private ArrayList<String> TEST_LIST= new ArrayList<>();
 
-    // добавление в список новых элементов и его обновление
-    public void setItems(List<Pokemon> pokes,boolean clear){
-        if (clear) pokeList.clear();
-        pokeList.addAll(pokes);
-        notifyDataSetChanged();
-    }
-
-    // удаление (очистка списка)
-    public void clearItems(){
-        pokeList.clear();
+    public void refreshRecyclerView(){
+        adapterPokeList.clear();
+        adapterPokeList.addAll(PokeList.getPokeList());
         notifyDataSetChanged();
     }
 
@@ -45,21 +38,21 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
                 .inflate(R.layout.item_rv,parent,false);
         return new PokeViewHolder(view);
     }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull PokeViewHolder holder, int position) {
-//        holder.bind(pokeList.get(position));
-//    }
 
     @Override
     public void onBindViewHolder(@NonNull PokeViewHolder holder, int position) {
-        holder.bind(TEST_LIST.get(position));
+        holder.bind(adapterPokeList.get(position));
     }
+
+  /*  @Override
+    public void onBindViewHolder(@NonNull PokeViewHolder holder, int position) {
+        holder.bind(TEST_LIST.get(position));
+    }*/
 
     @Override
     public int getItemCount() {
-        //return pokeList.size();
-        return TEST_LIST.size();
+        return adapterPokeList.size();
+        //return TEST_LIST.size();
     }
 
     class PokeViewHolder extends RecyclerView.ViewHolder{
@@ -82,12 +75,12 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
         }
 
 
-        //
-//        void bind(Pokemon pokemon){
-//            textView.setText(pokemon.getName());
-//        }
-        void bind(String test){
-            textView.setText(test);
+
+        void bind(Pokemon pokemon){
+            textView.setText(pokemon.getName());
         }
+/*        void bind(String test){
+            textView.setText(test);
+        }*/
     }
 }

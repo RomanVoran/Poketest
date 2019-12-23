@@ -18,15 +18,18 @@ public class PokePresenter {
         this.view = null;
     }
 
-    public void refresh(){
-
-    }
 
     public void viewIsReady(){
-        loadPokes();
+        //loadPokes();
     }
 
-    public void loadPokes(){
 
+    public void loadPokes(int indFrom, int countOfPokes){
+        model.loadPokePack(indFrom, countOfPokes, new PokeModel.LoadCompleteCallback() {
+            @Override
+            public void LoadComplete() {
+                view.addPokes();
+            }
+        });
     }
 }
