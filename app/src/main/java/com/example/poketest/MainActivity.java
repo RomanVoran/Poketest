@@ -32,6 +32,34 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show();
+        Log.d("MYLOGS","onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this,"onRestart",Toast.LENGTH_SHORT).show();
+        Log.d("MYLOGS","onRestart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this,"onStop",Toast.LENGTH_SHORT).show();
+        Log.d("MYLOGS","onStop");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this,"onPause",Toast.LENGTH_SHORT).show();
+        Log.d("MYLOGS","onPause");
+    }
+
     private void init(){
 
         checkBoxDef = findViewById(R.id.checkBox_defence);

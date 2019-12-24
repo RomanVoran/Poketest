@@ -23,7 +23,11 @@ class PokePresenter {
 
 
     void viewIsReady(){
-        loadPokes(1,countOfPokes);
+        if (PokeList.size()<1){
+            loadPokes(1,countOfPokes);
+            return;
+        }
+        view.addPokes();
     }
 
     void sortPokes(boolean att, boolean def, boolean hp){
