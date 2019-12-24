@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_refresh).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pokePresenter.loadPokes(1,10);
+                pokePresenter.loadRandomPokes();
             }
         });
 
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)){
                     // условие невозможности прокрутки списка вниз
+                    pokePresenter.loadNextPokes();
                 }
             }
         });
@@ -69,19 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
         PokeModel model = new PokeModel();
         pokePresenter = new PokePresenter(model);
-        pokePresenter.attachView(this);;
+        pokePresenter.attachView(this);
+        pokePresenter.viewIsReady();
 
-
-//        ArrayList<String> TEST_LIST = new ArrayList<>();
-//        TEST_LIST.add("MOJO");
-//        TEST_LIST.add("goga");
-//        TEST_LIST.add("loppidop");
-//        TEST_LIST.add("HowerBall");
-//        TEST_LIST.add("Notify Connection");
-//        TEST_LIST.add("Baar");
-//        TEST_LIST.add("Vockabulary");
-//        TEST_LIST.add("vokabular");
-//        pokeAdapter.showTest(TEST_LIST);
     }
 
     public void addPokes(){
@@ -90,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickCheckBox(View view){
         // слушатель нажатия на один из ЧекБоксов
+        pokePresenter.sortPokes(checkBoxAtt.isChecked(),checkBoxDef.isChecked(),checkBoxHP.isChecked());
     }
 
     public void showLoadToast(){

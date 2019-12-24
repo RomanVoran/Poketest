@@ -51,7 +51,7 @@ public class PokeList {
 
     // поиск покемона с максимальным заданным параметром (hp attack defence)
     // и перестановка его на первую позицию в списке
-    static void findMax(boolean hp,boolean att, boolean def){
+    static void findMax(boolean att, boolean def, boolean hp){
         // преобразование boolean значения checkbox в int значения для сравнения
         int hpVal = hp?1:0;
         int attVal = att?1:0;

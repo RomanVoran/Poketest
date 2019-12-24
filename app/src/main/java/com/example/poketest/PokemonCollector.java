@@ -39,7 +39,7 @@ public class PokemonCollector extends Thread {
                         response.body().getSprites().getFront_default()));
                 if (mIsLastPokemon){
                     mIsLastPokemon = false;
-                    completeCallback.LoadComplete();
+                    completeCallback.loadComplete();
                     // загружен и добавлен последний покемон (далее отрисовка recycler view)
                 }
 
