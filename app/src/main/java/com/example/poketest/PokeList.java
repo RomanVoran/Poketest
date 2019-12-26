@@ -3,7 +3,7 @@ package com.example.poketest;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PokeList {
+class PokeList {
     private static ArrayList<Pokemon> pokeList = new ArrayList<>();
 
     //добавление элементов в список PokeList
@@ -36,7 +36,7 @@ public class PokeList {
     }
 
     // перестановка элементов списка PokeList
-    static void pokeSwap(int ind1,int ind2){
+    private static void pokeSwap(int ind1, int ind2){
         Collections.swap(PokeList.pokeList,ind1,ind2);
     }
 

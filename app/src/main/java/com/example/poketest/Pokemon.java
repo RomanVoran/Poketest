@@ -11,7 +11,7 @@ class Pokemon{
     private String  type;
     private String  sprite;
 
-    public Pokemon(String name,
+    Pokemon(String name,
                    int id,
                    int attack,
                    int defence,
@@ -32,75 +32,39 @@ class Pokemon{
         this.sprite  = sprite;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
+    int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAttack() {
+    int getAttack() {
         return attack;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public int getDefence() {
+    int getDefence() {
         return defence;
     }
 
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
-
-    public int getHp() {
+    int getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
+    int getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public String getType() {
+    String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getSprite() {
+    String getSprite() {
         return sprite;
-    }
-
-    public void setSprite(String sprite) {
-        this.sprite = sprite;
     }
 }

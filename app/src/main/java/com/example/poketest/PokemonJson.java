@@ -12,6 +12,9 @@ public class PokemonJson {
     private List<Types> types;
     private List<Stats> stats;
 
+    public PokemonJson() {
+    }
+
     class Types{
         private Type type;
 

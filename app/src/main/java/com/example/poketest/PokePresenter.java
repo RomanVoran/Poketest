@@ -1,5 +1,6 @@
 package com.example.poketest;
 
+
 import static java.lang.Math.round;
 import static java.lang.Math.random;
 
@@ -8,6 +9,7 @@ class PokePresenter {
     private MainActivity view;
     private PokeModel model;
     private int countOfPokes = 10;
+    private boolean mReadyToLoad = true;
 
     PokePresenter(PokeModel model){
         this.model = model;
@@ -23,6 +25,7 @@ class PokePresenter {
 
 
     void viewIsReady(){
+        if (!mReadyToLoad) return;
         if (PokeList.size()<1){
             loadPokes(1,countOfPokes);
             return;
@@ -36,6 +39,7 @@ class PokePresenter {
     }
 
     void loadRandomPokes(){
+        if (!mReadyToLoad) return;
         PokeList.clearList();
         int indFrom = (int) round(random()*500);
         loadPokes(indFrom, countOfPokes);
@@ -43,6 +47,8 @@ class PokePresenter {
     }
 
     void loadNextPokes(){
+
+        if (!mReadyToLoad) return;
         if (PokeList.getLastIndex()+countOfPokes>=570){
             //условие если покемонов в базе больше нет (индекс запрашиваемых покемонов больше индекса доступных в базе)
             return;
@@ -52,9 +58,12 @@ class PokePresenter {
     }
 
     private void loadPokes(int indFrom, int countOfPokes){
+        mReadyToLoad = false;
+        view.showLoadToast();
         model.loadPokePack(indFrom, countOfPokes, new PokeModel.LoadCompleteCallback() {
             @Override
             public void loadComplete() {
+                mReadyToLoad = true;
                 view.addPokes();
             }
         });

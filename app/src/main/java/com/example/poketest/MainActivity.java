@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
+
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,31 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        // обновление RecyclerView в случае еслизагрузка покемонов завершилась во время работы с другим экраном
         super.onResume();
-        Toast.makeText(this,"onResume",Toast.LENGTH_SHORT).show();
-        Log.d("MYLOGS","onResume");
+        pokeAdapter.refreshRecyclerView();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Toast.makeText(this,"onRestart",Toast.LENGTH_SHORT).show();
-        Log.d("MYLOGS","onRestart");
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(this,"onStop",Toast.LENGTH_SHORT).show();
-        Log.d("MYLOGS","onStop");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(this,"onPause",Toast.LENGTH_SHORT).show();
-        Log.d("MYLOGS","onPause");
-    }
 
     private void init(){
 
@@ -70,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
 
-        pokeAdapter = new PokeAdapter();
+        pokeAdapter = new PokeAdapter(this);
 
         RecyclerView recyclerView = findViewById(R.id.recycleView_poke);
         recyclerView.setLayoutManager(layoutManager);
@@ -113,12 +90,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showLoadToast(){
-        Toast.makeText(this,"Load",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"Load...",Toast.LENGTH_SHORT).show();
     }
 
-    public void showCompleteToast(){
-        Toast.makeText(this,"Complete",Toast.LENGTH_SHORT);
-    }
 
     @Override
     protected void onDestroy() {

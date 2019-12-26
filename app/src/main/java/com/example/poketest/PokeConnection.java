@@ -4,11 +4,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class PokeConnection extends Thread{
-    int index;
-    Callback<PokemonJson> jsonCallback;
-    PokeApi pokeApi;
+    private int index;
+    private Callback<PokemonJson> jsonCallback;
+    private PokeApi pokeApi;
 
-    public PokeConnection(int index, Callback<PokemonJson> jsonCallback,PokeApi pokeApi){
+    PokeConnection(int index, Callback<PokemonJson> jsonCallback,PokeApi pokeApi){
         this.pokeApi = pokeApi;
         this.index = index;
         this.jsonCallback = jsonCallback;
