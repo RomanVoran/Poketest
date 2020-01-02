@@ -40,6 +40,7 @@
         android:id="@+id/button_refresh"
         android:layout_width="112dp"
         android:layout_height="61dp"
+        android:background="@color/colorButton"
         android:text="@string/button_refresh"
         android:textColor="@android:color/background_light"
         android:textSize="17sp"
@@ -52,7 +53,9 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_defence" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_defence"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
