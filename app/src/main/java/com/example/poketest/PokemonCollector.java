@@ -28,6 +28,7 @@ public class PokemonCollector extends Thread {
             @Override
             public void onResponse(Call<PokemonJson> call, Response<PokemonJson> response) {
                 mReadyToLoad = true;
+                assert response.body() != null;
                 PokeList.addElement(new Pokemon(response.body().getName(),
                         response.body().getId(),
                         response.body().getStats().get(4).getBase_stat(),
