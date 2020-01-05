@@ -9,7 +9,7 @@ class PokeModel {
     }
 
     interface LoadCompleteCallback{
-        void loadComplete();
+        void loadComplete(boolean loadingDone);
     }
 
 }

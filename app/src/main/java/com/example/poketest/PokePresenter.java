@@ -34,6 +34,10 @@ class PokePresenter {
     }
 
     void sortPokes(boolean att, boolean def, boolean hp){
+        if (PokeList.size()<1){
+            view.showEmptyPokeListToast();
+            return;
+        }
         PokeList.findMax(att,def,hp);
         view.addPokes();
     }
@@ -60,11 +64,17 @@ class PokePresenter {
     private void loadPokes(int indFrom, int countOfPokes){
         mReadyToLoad = false;
         view.showLoadToast();
+
         model.loadPokePack(indFrom, countOfPokes, new PokeModel.LoadCompleteCallback() {
             @Override
-            public void loadComplete() {
-                mReadyToLoad = true;
-                view.addPokes();
+            public void loadComplete(boolean loadingDone) {
+                if (loadingDone){
+                    mReadyToLoad = true;
+                    view.addPokes();
+                }else{
+                    mReadyToLoad = true;
+                    view.showConnectFailureToast();
+                }
             }
         });
     }

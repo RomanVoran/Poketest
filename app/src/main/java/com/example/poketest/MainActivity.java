@@ -93,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"Load...",Toast.LENGTH_SHORT).show();
     }
 
+    public void showConnectFailureToast(){
+        Toast.makeText(this,"Connection failure",Toast.LENGTH_LONG).show();
+    }
+
+    public void showEmptyPokeListToast(){
+        Toast.makeText(this,"No loaded pokemon",Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onDestroy() {

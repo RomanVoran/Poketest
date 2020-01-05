@@ -17,7 +17,7 @@
     <string name="addWeight">Weight: </string>
     <string name="addHeight">Height: </string>
 
-
-    <!--             Poke Model      (Model)     -->
+    <!--             Poke Collector               -->
+    <string name="BASE_URL">https://pokeapi.co/api/v2/</string>
 
 </resources>

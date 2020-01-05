@@ -1,6 +1,5 @@
 package com.example.poketest;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -13,7 +12,6 @@ public class PokemonCollector extends Thread {
     private int pokePackSize;
     private static volatile boolean mReadyToLoad;
     private static volatile boolean mIsLastPokemon;
-    private final String BASE_URL = "https://pokeapi.co/api/v2/";
     private PokeModel.LoadCompleteCallback completeCallback;
 
     PokemonCollector(int indFrom, int pokePackSize, PokeModel.LoadCompleteCallback completeCallback){
@@ -24,6 +22,7 @@ public class PokemonCollector extends Thread {
 
     @Override
     public void run() {
+        final String BASE_URL = "https://pokeapi.co/api/v2/";
         super.run();
         Callback<PokemonJson> pokemonJsonCallback = new Callback<PokemonJson>() {
             @Override
@@ -40,7 +39,7 @@ public class PokemonCollector extends Thread {
                         response.body().getSprites().getFront_default()));
                 if (mIsLastPokemon){
                     mIsLastPokemon = false;
-                    completeCallback.loadComplete();
+                    completeCallback.loadComplete(true);
                     // загружен и добавлен последний покемон (далее отрисовка recycler view)
                 }
 
@@ -48,7 +47,7 @@ public class PokemonCollector extends Thread {
 
             @Override
             public void onFailure(Call<PokemonJson> call, Throwable t) {
-
+                completeCallback.loadComplete(false);
             }
         };
 
