@@ -21,14 +21,14 @@ class Pokemon{
                    String type,
                    String sprite){
 
-        this.name    = name;
+        this.name    = firstUpperCase(name);
         this.id      = id;
         this.attack  = attack;
         this.defence = defence;
         this.hp      = hp;
         this.height  = height;
         this.weight  = weight;
-        this.type    = type;
+        this.type    = firstUpperCase(type);
         this.sprite  = sprite;
     }
 
@@ -66,5 +66,11 @@ class Pokemon{
 
     String getSprite() {
         return sprite;
+    }
+
+
+    private String firstUpperCase(String word){
+        if(word == null || word.isEmpty()) return ""; //
+        return word.substring(0, 1).toUpperCase() + word.substring(1);
     }
 }

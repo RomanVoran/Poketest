@@ -38,12 +38,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="26dp"
                 android:layout_toEndOf="@+id/imag_poke"
-                android:text="!!!!"
-                android:textSize="20sp" />
+                android:text="AaBbCcDd1234"
+                android:textColor="#000"
+                android:textSize="35dp" />
 
         </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

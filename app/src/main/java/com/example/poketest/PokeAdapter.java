@@ -85,8 +85,13 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHolder
 
 
         void bind(Pokemon pokemon){
-            textView.setText(pokemon.getName());
+            textView.setText(firstUpperCase(pokemon.getName()));
             Picasso.get().load(pokemon.getSprite()).into(imageView);
+        }
+
+        private String firstUpperCase(String word){
+            if(word == null || word.isEmpty()) return ""; //или return word;
+            return word.substring(0, 1).toUpperCase() + word.substring(1);
         }
     }
 }

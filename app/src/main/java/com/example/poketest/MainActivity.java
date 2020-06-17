@@ -53,9 +53,19 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(pokeAdapter);
 
-        findViewById(R.id.button_refresh).setOnClickListener(new View.OnClickListener() {
+
+//          нажатие на кнопку
+//        findViewById(R.id.button_refresh).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                pokePresenter.loadRandomPokes();
+//            }
+//        });
+
+        // нажатие на плавающую кнопку
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 pokePresenter.loadRandomPokes();
             }
         });
