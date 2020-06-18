@@ -51,13 +51,13 @@ public class PokeStatActivity extends AppCompatActivity {
                 startedIntent.hasExtra("pokeWeight")&&
                 startedIntent.hasExtra("pokeSprite"))
         {
-            String name =  getString(R.string.addName) + startedIntent.getStringExtra("pokeName");
-            String type =  getString(R.string.addType) + startedIntent.getStringExtra("pokeType");
-            String height = getString(R.string.addHeight) + startedIntent.getIntExtra("pokeHeight",0);
-            String  weight = getString(R.string.addWeight) + startedIntent.getIntExtra("pokeWeight",0);
-            String attack = getString(R.string.addAttack) + startedIntent.getIntExtra("pokeAttack",0);
-            String defence = getString(R.string.addDeffence) + startedIntent.getIntExtra("pokeDefence",0);
-            String hp = getString(R.string.addHP) + startedIntent.getIntExtra("pokeHP",0);
+            String name =  startedIntent.getStringExtra("pokeName");
+            String type =  startedIntent.getStringExtra("pokeType");
+            String height = "" + startedIntent.getIntExtra("pokeHeight",0);
+            String  weight = "" + startedIntent.getIntExtra("pokeWeight",0);
+            String attack = "" + startedIntent.getIntExtra("pokeAttack",0);
+            String defence = "" + startedIntent.getIntExtra("pokeDefence",0);
+            String hp = "" + startedIntent.getIntExtra("pokeHP",0);
             String sprite = startedIntent.getStringExtra("pokeSprite");
 
             textViewName.setText(name);

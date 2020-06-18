@@ -7,4 +7,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorAccent1">#D32A2A</color>
     <color name="colorButton">#960000</color>
+
+    <color name="divLine">#85E74C3C</color>
 </resources>
