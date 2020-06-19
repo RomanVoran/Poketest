@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean defCheck;
     private ImageButton hpImageButton;
     private boolean hpCheck;
-
+    private ProgressBar progBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         pokeAdapter.refreshRecyclerView();
     }
 
-
-
     private void init(){
 
         attImageButton = findViewById(R.id.ATT_imb);
@@ -51,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         hpImageButton = findViewById(R.id.HP_imb);
         hpCheck = false;
 
+        progBar = findViewById(R.id.progressBar);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -90,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
         pokeAdapter.refreshRecyclerView();
     }
 
-    public void showLoadToast(){
-        Toast.makeText(this,"Load...",Toast.LENGTH_SHORT).show();
-    }
-
     public void showConnectFailureToast(){
         Toast.makeText(this,"Connection failure",Toast.LENGTH_LONG).show();
     }
@@ -102,6 +98,13 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"No loaded pokemon",Toast.LENGTH_SHORT).show();
     }
 
+    public void showProgresBar(){
+        progBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgresBar(){
+        progBar.setVisibility(View.INVISIBLE);
+    }
 
     @Override
     protected void onDestroy() {
@@ -109,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
         // отвязка вьюшки активности от презентора (избежание утечек памяти)
         pokePresenter.detachView();
     }
-
 
     // функция нажатия на ImageButtonы
     public void onStatClick(View view) {

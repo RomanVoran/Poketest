@@ -36,6 +36,7 @@ class PokePresenter {
     void sortPokes(boolean att, boolean def, boolean hp){
         if (PokeList.size()<1){
             view.showEmptyPokeListToast();
+            view.hideProgresBar();
             return;
         }
         PokeList.findMax(att,def,hp);
@@ -63,7 +64,7 @@ class PokePresenter {
 
     private void loadPokes(int indFrom, int countOfPokes){
         mReadyToLoad = false;
-        view.showLoadToast();
+        view.showProgresBar();
 
         model.loadPokePack(indFrom, countOfPokes, new PokeModel.LoadCompleteCallback() {
             @Override
@@ -75,6 +76,7 @@ class PokePresenter {
                     mReadyToLoad = true;
                     view.showConnectFailureToast();
                 }
+                view.hideProgresBar();
             }
         });
     }
