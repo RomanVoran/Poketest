@@ -2,10 +2,14 @@ package com.example.poketest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
@@ -42,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         attImageButton = findViewById(R.id.ATT_imb);
         attCheck = false;
@@ -84,6 +91,21 @@ public class MainActivity extends AppCompatActivity {
         pokePresenter = new PokePresenter(model);
         pokePresenter.attachView(this);
         pokePresenter.viewIsReady();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==R.id.aboutItem){
+            Intent intent = new Intent(this,AboutActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     public void addPokes(){

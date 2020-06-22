@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_pokeball_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".PokeStatActivity" />
         <activity
             android:name=".SplashActivity"

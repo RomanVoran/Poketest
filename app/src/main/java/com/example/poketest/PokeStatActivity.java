@@ -2,6 +2,7 @@ package com.example.poketest;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,10 +27,11 @@ public class PokeStatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poke_stat);
-        ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //показать стрелку
+        getSupportActionBar().setDisplayShowHomeEnabled(true); //привязать слушателя на нажатие стрелки
 
         imageViewPoke = findViewById(R.id.imageView_poke);
         textViewAttack = findViewById(R.id.textView_attack);
