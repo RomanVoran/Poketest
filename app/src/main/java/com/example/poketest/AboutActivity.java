@@ -4,8 +4,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -30,4 +33,9 @@ public class AboutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void toFigma(View view) {
+        Uri address = Uri.parse("https://www.figma.com/file/MQFNjUk1ioYYszVtypLtXR/poketest?node-id=0%3A1");
+        Intent openlink = new Intent(Intent.ACTION_VIEW, address);
+        startActivity(openlink);
+    }
 }

@@ -1,12 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutActivity"
-    >
+    tools:context=".AboutActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_logo"
+        android:paddingVertical="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/divLine"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView9"
+        style="@style/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/devBy"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        />
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/romanMail"
+        android:linksClickable="true"
+        android:textColorLink="@color/colorPrimary"
+        android:autoLink="email"
+        app:layout_constraintTop_toBottomOf="@id/textView9" />
+
+
+    <TextView
+        android:id="@+id/textView10"
+        style="@style/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="@string/gitLink"
+        android:textAlignment="center"
+        android:textColorLink="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/divLine"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        style="@style/aboutTextView"
+        android:text="@string/desBy"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        />
+
+
+    <TextView
+        android:id="@+id/textView13"
+        style="@style/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lizaVK"
+        android:textAlignment="center"
+        android:linksClickable="true"
+        android:autoLink="web"
+        android:textColorLink="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        />
+
+    <TextView
+        style="@style/aboutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="toFigma"
+        android:text="@string/figmaLink"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,16 +114,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/aboutTitle"/>
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="149dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="296dp"
-        android:text="о нас"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:title="@string/aboutTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,12 @@
 
     <!--             About Activity               -->
     <string name="aboutTitle">About</string>
-
+    <string name="devBy">Developed by Geraskin Roman</string>
+    <string name="desBy">Designed by Arkhangelskaya Elizaveta</string>
+    <string name="gitLink">github.com/RomanVoran/Poketest</string>
+    <string name="figmaLink"><u>Figma ui</u></string>
+    <string name="romanMail">geraskin.ra@gmail.com</string>
+    <string name="lizaVK">vk.com/l.arkhangelsk</string>
 
 
 
