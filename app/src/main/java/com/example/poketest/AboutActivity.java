@@ -12,11 +12,13 @@ import android.view.View;
 
 public class AboutActivity extends AppCompatActivity {
 
+    private final String FIGMA_URL = "https://www.figma.com/file/MQFNjUk1ioYYszVtypLtXR/poketest?node-id=0%3A1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        // добавление кнопки назад на тулбаре
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -24,6 +26,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
 
+    // обработка нажатия кнопки  назад на тулбаре
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId()==android.R.id.home){
@@ -33,8 +36,9 @@ public class AboutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // слушатель нажатиян на текст "Figma ui" для перехода по ссылке
     public void toFigma(View view) {
-        Uri address = Uri.parse("https://www.figma.com/file/MQFNjUk1ioYYszVtypLtXR/poketest?node-id=0%3A1");
+        Uri address = Uri.parse(FIGMA_URL);
         Intent openlink = new Intent(Intent.ACTION_VIEW, address);
         startActivity(openlink);
     }

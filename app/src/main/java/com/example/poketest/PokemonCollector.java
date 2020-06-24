@@ -13,6 +13,8 @@ public class PokemonCollector extends Thread {
     private static volatile boolean mReadyToLoad;
     private static volatile boolean mIsLastPokemon;
     private PokeModel.LoadCompleteCallback completeCallback;
+    private final String BASE_URL = "https://pokeapi.co/api/v2/";
+
 
     PokemonCollector(int indFrom, int pokePackSize, PokeModel.LoadCompleteCallback completeCallback){
         this.indFrom = indFrom;
@@ -22,7 +24,6 @@ public class PokemonCollector extends Thread {
 
     @Override
     public void run() {
-        final String BASE_URL = "https://pokeapi.co/api/v2/";
         super.run();
         Callback<PokemonJson> pokemonJsonCallback = new Callback<PokemonJson>() {
             @Override
