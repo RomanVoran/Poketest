@@ -1,4 +1,4 @@
-package com.example.poketest;
+package com.geraskin.poketest;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.poketest", appContext.getPackageName());
+        assertEquals("com.geraskin.poketest", appContext.getPackageName());
     }
 }

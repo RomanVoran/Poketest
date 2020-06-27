@@ -1,4 +1,4 @@
-package com.example.poketest;
+package com.geraskin.poketest;
 
 class Pokemon{
     private String  name;

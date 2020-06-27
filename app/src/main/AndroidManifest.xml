@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.poketest">
+    package="com.geraskin.poketest">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_pokeball_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PokeStatActivity" />
+        <activity android:name="com.geraskin.poketest.AboutActivity"></activity>
+        <activity android:name="com.geraskin.poketest.MainActivity" />
+        <activity android:name="com.geraskin.poketest.PokeStatActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.geraskin.poketest.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

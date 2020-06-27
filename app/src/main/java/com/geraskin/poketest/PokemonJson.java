@@ -1,4 +1,4 @@
-package com.example.poketest;
+package com.geraskin.poketest;
 
 import java.util.List;
 
